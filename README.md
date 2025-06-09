@@ -32,12 +32,11 @@ homelab
 
 ## 🔧 Tools & Technologies
 
-| Category      | Tools                              |
-| --------------|----------------------------------- |
+| Category      | Tools                             |
+|---------------|------------------------------------|
 | Hypervisor    | Proxmox VE                         |
 | Kubernetes    | Kubeadm, containerd, Helm          |
 | Networking    | Cillium                            |
-|
 | Automation    | Ansible, Terraform                 |
 | Monitoring    | Prometheus, Grafana, Alertmanager  |
 | Storage       | NFS, Ceph                          |
