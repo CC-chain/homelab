@@ -1,0 +1,14 @@
+---
+- name: Initialize Kubernetes control plane
+  command: >
+    kubeadm init --control-plane-endpoint={{ ansible_hostname }}
+  args:
+    creates: /etc/kubernetes/admin.conf
+  become: true
+
+- name: Copy kubeconfig to root user
+  shell: |
+    mkdir -p /root/.kube
+    cp -f /etc/kubernetes/admin.conf /root/.kube/config
+    chown root:root /root/.kube/config
+  become: true

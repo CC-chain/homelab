@@ -1,0 +1,45 @@
+---
+
+- name: Ensure firewalld is installed and running
+  ansible.builtin.package:
+    name: firewalld
+    state: present
+  become: true
+
+- name: Enable and start firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: started
+    enabled: true
+  become: true
+
+- name: Open required Kubernetes ports in firewalld
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: enabled
+    immediate: yes
+  with_items:
+    - 6443/tcp # Kubernetes API server  
+    - 10250/tcp # Kubelet API
+    - 2379/tcp # etcd server client API
+    - 2380/tcp # etcd server peer API
+    - 10250/tcp # Kubelet API
+    - 10251/tcp # Kube-scheduler
+    - 10252/tcp # Kube-controller-manager
+    - 10257/tcp # CoreDNS
+    - 10258/tcp # Metrics server
+    - 10259/tcp # Ingress controller (if applicable)
+    - 179/tcp # BGP (if using Calico or similar)
+    - 4789/udp # VXLAN (if using Calico or similar)
+  become: true
+
+- name: Reload firewalld to apply changes
+  ansible.builtin.command: firewall-cmd --reload
+  become: true
+
+- name: Set SELinux to permissive mode
+  selinux:
+    policy: targeted
+    state: permissive
+  become: true

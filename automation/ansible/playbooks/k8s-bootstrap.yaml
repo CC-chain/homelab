@@ -1,0 +1,7 @@
+---
+- name: Bootstrap Control Plane Kubernetes
+  hosts: k8s-master
+  become: true
+  roles:
+    - kube-prereqs
+    - kube-control-plane
