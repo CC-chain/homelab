@@ -32,15 +32,16 @@ homelab
 
 ## 🔧 Tools & Technologies
 
-| Category      | Tools                             |
-|---------------|------------------------------------|
+| Category      | Tools                              |
+| --------------|----------------------------------- |
 | Hypervisor    | Proxmox VE                         |
 | Kubernetes    | Kubeadm, containerd, Helm          |
-| Networking    | pfSense, VLAN, NAT                 |
+| Networking    | Cillium                            |
+|
 | Automation    | Ansible, Terraform                 |
 | Monitoring    | Prometheus, Grafana, Alertmanager  |
 | Storage       | NFS, Ceph                          |
-| GitOps / CI   | ArgoCD (future), GitHub Actions    |
+| GitOps / CI   | ArgoCD, GitHub Actions             |
 
 ---
 
