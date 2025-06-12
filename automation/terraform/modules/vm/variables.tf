@@ -1,0 +1,15 @@
+variable "vmid" { type = number }
+variable "name" { type = string }
+variable "target_node" { type = string }
+variable "cores" { type = number }
+variable "sockets" { type = number }
+variable "memory" { type = number }
+variable "disk_size" { type = string }
+variable "storage" { type = string }
+variable "iso" { type = string }
+variable "bridge" { type = string }
+variable "firewall" { type = bool }
+variable "slot" { type = string }
+variable "network_id" { type = number }
+variable "disk_type" { type = string }
+variable "disk_file" { type = string }
